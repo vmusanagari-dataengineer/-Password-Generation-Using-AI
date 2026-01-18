@@ -1,0 +1,12 @@
+Steps to make the project run smoothly,
+---------------------------------------
+1. Go to 'On Dataset 2' folder
+2. Go to 'Phase 2 - Neural Network' folder
+3. Copy 'PasswordNN_v2.pth' to 'bin' folder
+4. Rename 'PasswordNN_v2.pth' to 'ANN.pth'
+5. Now go to 'Phase 3 - Generation' folder
+6. Copy both '01-traininggenerator.pth' and '01-normalizedfeatures.npy' to 'bin' folder
+7. Rename '01-traininggenerator.pth' to 'VAE.pth'
+8. Rename '01-normalizedfeatures.npy' to 'VAE.npy'
+-----------------------------------------
+Enjoy...
