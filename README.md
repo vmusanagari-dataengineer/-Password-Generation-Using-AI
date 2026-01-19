@@ -39,13 +39,12 @@ The system is designed for use in **password management tools, authentication sy
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 ```text
 Password-Machine-Learning/
-│
-├── data/                      # Sample datasets (small only)
-├── preprocessing/             # Feature engineering scripts
+├── data/                 # Sample datasets (small only)
+├── preprocessing/        # Feature engineering scripts
 ├── models/
 │   ├── rnn_model.py
 │   ├── cnn_model.py
@@ -60,3 +59,4 @@ Password-Machine-Learning/
 │   └── experiments.ipynb
 ├── requirements.txt
 └── README.md
+
