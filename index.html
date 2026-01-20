@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Vinay Musanagari | AI & Data Engineering Portfolio</title>
+  <title>Vinay Musanagari | Data Engineer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,42 +13,82 @@
       color: #e5e7eb;
       line-height: 1.6;
     }
+
     header {
       background: #020617;
-      padding: 40px;
+      padding: 50px 20px;
       text-align: center;
     }
+
     header h1 {
       margin: 0;
       font-size: 2.5rem;
       color: #38bdf8;
     }
+
+    header p {
+      margin-top: 10px;
+      color: #cbd5f5;
+      font-size: 1.1rem;
+    }
+
     section {
-      padding: 40px;
-      max-width: 900px;
+      padding: 40px 20px;
+      max-width: 1000px;
       margin: auto;
     }
+
     h2 {
       color: #38bdf8;
       border-bottom: 2px solid #1e293b;
       padding-bottom: 8px;
+      margin-bottom: 20px;
     }
+
     .project {
       background: #020617;
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 10px;
+      transition: transform 0.2s ease;
     }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project h3 {
+      margin-top: 0;
+      color: #f1f5f9;
+    }
+
     .project a {
       color: #38bdf8;
       text-decoration: none;
       font-weight: bold;
     }
+
+    .skills span {
+      display: inline-block;
+      background: #1e293b;
+      color: #e5e7eb;
+      padding: 6px 10px;
+      border-radius: 5px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       background: #020617;
       color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .contact a {
+      color: #38bdf8;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -58,12 +100,26 @@
 </header>
 
 <section>
+  <h2>About Me</h2>
+  <p>
+    Data Engineer and AI/ML enthusiast with hands-on experience in building scalable data pipelines,
+    analytics-ready datasets, and governed data solutions. Strong background in Python, SQL, Azure,
+    Databricks, and machine learning workflows.
+  </p>
+  <p>
+    Built an AI-based password strength classifier and password generator using deep learning
+    (RNN, CNN, VAE), and developed Skill Hub — an AI-assisted course management portal with
+    secure authentication, progress tracking, and real-time feedback.
+  </p>
+</section>
+
+<section>
   <h2>Featured Projects</h2>
 
   <div class="project">
     <h3>🔐 AI Password Generation & Strength Classification</h3>
     <p>
-      Deep learning system using RNN, CNN, and VAE models to classify password strength 
+      Deep learning system using RNN, CNN, and VAE models to classify password strength
       and generate secure, high-entropy passwords for cybersecurity applications.
     </p>
     <a href="https://github.com/vmusanagari-dataengineer/Password-Machine-learning" target="_blank">
@@ -74,7 +130,7 @@
   <div class="project">
     <h3>📚 Skill Hub – AI-Assisted Learning Portal</h3>
     <p>
-      AI-assisted course management platform with secure authentication, employee/client tracking, 
+      AI-assisted course management platform with secure authentication, employee/client tracking,
       and real-time feedback for corporate learning ecosystems.
     </p>
     <a href="https://github.com/vmusanagari-dataengineer/Skill-Hub" target="_blank">
@@ -86,16 +142,28 @@
 
 <section>
   <h2>Skills</h2>
-  <p>
-    Python • SQL • PyTorch • Azure Data Factory • Databricks • Snowflake • Power BI • Git • Docker
-  </p>
+  <div class="skills">
+    <span>Python</span>
+    <span>SQL</span>
+    <span>PyTorch</span>
+    <span>Azure Data Factory</span>
+    <span>Databricks</span>
+    <span>Snowflake</span>
+    <span>Power BI</span>
+    <span>Git</span>
+    <span>Docker</span>
+  </div>
 </section>
 
 <section>
   <h2>Contact</h2>
-  <p>
-    LinkedIn: <a href="https://www.linkedin.com/in/m-vinaymusanagari/" target="_blank">View Profile</a><br>
-    GitHub: <a href="https://github.com/vmusanagari-dataengineer" target="_blank">vmusanagari-dataengineer</a>
+  <p class="contact">
+    LinkedIn: <a href="https://www.linkedin.com/in/m-vinaymusanagari/" target="_blank">
+      linkedin.com/in/m-vinaymusanagari
+    </a><br>
+    GitHub: <a href="https://github.com/vmusanagari-dataengineer" target="_blank">
+      github.com/vmusanagari-dataengineer
+    </a>
   </p>
 </section>
 
@@ -105,4 +173,3 @@
 
 </body>
 </html>
-
