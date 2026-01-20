@@ -1,175 +1,398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Vinay Musanagari | Data Engineer Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Vinay Musanagari — Data Engineer & AI/ML. Portfolio, projects, skills, and contact." />
+  <title>Vinay Musanagari | Portfolio</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1a2f;
+      --text:#e7edf6;
+      --muted:#a9b7cc;
+      --link:#64d2ff;
+      --line:#21314f;
+      --chip:#142444;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 900px at 15% -10%, #1a2c55 0%, transparent 60%),
+                  radial-gradient(900px 700px at 85% -20%, #123a4a 0%, transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .skip{position:absolute; left:-9999px}
+    .skip:focus{left:20px; top:20px; background:#fff; color:#000; padding:10px 12px; border-radius:10px; z-index:999}
+
+    /* Top Nav */
+    .top{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom:1px solid rgba(33,49,79,.7);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--link);
+      box-shadow: 0 0 0 6px rgba(100,210,255,.12);
+    }
+    .links{display:flex; flex-wrap:wrap; gap:14px; justify-content:flex-end}
+    .links a{
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+    }
+    .links a:hover{
+      color:var(--text);
+      border-color: rgba(33,49,79,.85);
+      background: rgba(15,26,47,.5);
+      text-decoration:none;
     }
 
-    header {
-      background: #020617;
-      padding: 50px 20px;
-      text-align: center;
+    /* Hero */
+    header{padding:34px 0 6px}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:22px;
+      align-items:start;
+      margin-top:14px;
+    }
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr}
+      .links{justify-content:flex-start}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(15,26,47,.88), rgba(15,26,47,.65));
+      border:1px solid rgba(33,49,79,.85);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{padding:24px}
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height:1.15;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size: 1.03rem;
+    }
+    .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+    .pill{
+      background: rgba(20,36,68,.75);
+      border:1px solid rgba(33,49,79,.85);
+      color: var(--text);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+    .hero-side{padding:18px}
+    .quick{
+      display:grid; gap:10px;
+    }
+    .quick a{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(33,49,79,.85);
+      background: rgba(11,18,32,.25);
+      color: var(--text);
+      text-decoration:none;
+    }
+    .quick a:hover{background: rgba(15,26,47,.6)}
+    .small{color:var(--muted); font-size:.95rem}
+
+    /* Sections */
+    section{padding:26px 0}
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+      margin: 6px 0 12px;
+    }
+    h2{
+      margin:0;
+      font-size: 1.35rem;
+      letter-spacing:-.01em;
+    }
+    .hint{color:var(--muted); font-size:.95rem}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+    }
+    .box{padding:18px}
+    .box p{margin:8px 0 0; color:var(--muted)}
+    .box h3{margin:0; font-size:1.05rem}
+
+    /* Project cards */
+    .proj{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .proj-top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+    }
+    .proj-title{margin:0; font-size:1.1rem}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px}
+    .tag{
+      background: rgba(20,36,68,.6);
+      border:1px solid rgba(33,49,79,.85);
+      padding:4px 8px;
+      border-radius:999px;
+      color: var(--muted);
+      font-size:.86rem;
+    }
+    .proj p{margin:0; color:var(--muted)}
+    .proj-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:6px}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(33,49,79,.9);
+      background: rgba(11,18,32,.2);
+      color: var(--text);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .btn:hover{background: rgba(15,26,47,.65); text-decoration:none}
+
+    /* Skills */
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{
+      background: rgba(20,36,68,.65);
+      border:1px solid rgba(33,49,79,.85);
+      padding:7px 10px;
+      border-radius:999px;
+      color: var(--text);
+      font-size:.92rem;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #38bdf8;
+    footer{
+      padding:26px 0 40px;
+      color: var(--muted);
+      border-top:1px solid rgba(33,49,79,.7);
+      margin-top: 18px;
     }
-
-    header p {
-      margin-top: 10px;
-      color: #cbd5f5;
-      font-size: 1.1rem;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      color: #38bdf8;
-      border-bottom: 2px solid #1e293b;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-    }
-
-    .project {
-      background: #020617;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      transition: transform 0.2s ease;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-    }
-
-    .project h3 {
-      margin-top: 0;
-      color: #f1f5f9;
-    }
-
-    .project a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .skills span {
-      display: inline-block;
-      background: #1e293b;
-      color: #e5e7eb;
-      padding: 6px 10px;
-      border-radius: 5px;
-      margin: 5px;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #020617;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
-
-    .contact a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
+    .footer-row{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
   </style>
 </head>
-<body>
 
-<header>
-  <h1>Vinay Musanagari</h1>
-  <p>Data Engineer | AI/ML | Azure | Databricks | SQL | Python</p>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<div class="top">
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Vinay Musanagari</span>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<header class="wrap" id="content">
+  <div class="hero">
+    <div class="card hero-main">
+      <h1>Data Engineer & AI/ML Builder.</h1>
+      <p class="sub">
+        I build analytics-ready data products and practical ML systems using <strong>Python</strong>, <strong>SQL</strong>,
+        <strong>Azure</strong>, <strong>Databricks</strong>, and <strong>PyTorch</strong>.
+      </p>
+
+      <div class="pills" aria-label="Highlights">
+        <span class="pill">Azure • Databricks • Snowflake</span>
+        <span class="pill">ETL/ELT • Modeling • BI</span>
+        <span class="pill">PyTorch • RNN/CNN • VAE</span>
+        <span class="pill">Governance • Quality • Docs</span>
+      </div>
+
+      <p class="small" style="margin-top:16px;">
+        Tip: Pin your best repos on GitHub and link this page in your resume/LinkedIn.
+      </p>
+    </div>
+
+    <aside class="card hero-side">
+      <div class="quick">
+        <a href="https://github.com/vmusanagari-dataengineer" target="_blank" rel="noreferrer">
+          <span>GitHub</span><span class="mono">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/m-vinaymusanagari/" target="_blank" rel="noreferrer">
+          <span>LinkedIn</span><span class="mono">→</span>
+        </a>
+        <!-- Optional: add your resume PDF to repo and link it here -->
+        <!-- <a href="Vinay_Musanagari_Resume.pdf" target="_blank"><span>Resume</span><span class="mono">→</span></a> -->
+        <a href="#projects">
+          <span>Featured projects</span><span class="mono">↓</span>
+        </a>
+      </div>
+      <p class="small" style="margin:12px 2px 0;">
+        Minimal, fast, and recruiter-friendly.
+      </p>
+    </aside>
+  </div>
 </header>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    Data Engineer and AI/ML enthusiast with hands-on experience in building scalable data pipelines,
-    analytics-ready datasets, and governed data solutions. Strong background in Python, SQL, Azure,
-    Databricks, and machine learning workflows.
-  </p>
-  <p>
-    Built an AI-based password strength classifier and password generator using deep learning
-    (RNN, CNN, VAE), and developed Skill Hub — an AI-assisted course management portal with
-    secure authentication, progress tracking, and real-time feedback.
-  </p>
-</section>
+<main class="wrap">
 
-<section>
-  <h2>Featured Projects</h2>
+  <section id="about">
+    <div class="section-title">
+      <h2>Brief introduction</h2>
+      <span class="hint">What I do and what I’m building</span>
+    </div>
 
-  <div class="project">
-    <h3>🔐 AI Password Generation & Strength Classification</h3>
-    <p>
-      Deep learning system using RNN, CNN, and VAE models to classify password strength
-      and generate secure, high-entropy passwords for cybersecurity applications.
-    </p>
-    <a href="https://github.com/vmusanagari-dataengineer/Password-Machine-learning" target="_blank">
-      View on GitHub →
-    </a>
-  </div>
+    <div class="grid">
+      <div class="card box">
+        <h3>About me</h3>
+        <p>
+          I’m Vinay — a data-focused builder who enjoys turning messy data into trusted datasets and dashboards,
+          and turning ML ideas into working prototypes. I care about performance, clarity, and documentation.
+        </p>
+      </div>
 
-  <div class="project">
-    <h3>📚 Skill Hub – AI-Assisted Learning Portal</h3>
-    <p>
-      AI-assisted course management platform with secure authentication, employee/client tracking,
-      and real-time feedback for corporate learning ecosystems.
-    </p>
-    <a href="https://github.com/vmusanagari-dataengineer/Skill-Hub" target="_blank">
-      View on GitHub →
-    </a>
-  </div>
+      <div class="card box">
+        <h3>Current focus</h3>
+        <p>
+          Building strong project “stories” (problem → approach → results) and packaging my work for real usage:
+          clean repos, reproducible environments, and lightweight demos.
+        </p>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <section id="skills">
+    <div class="section-title">
+      <h2>Skills</h2>
+      <span class="hint">Tools I use often</span>
+    </div>
 
-<section>
-  <h2>Skills</h2>
-  <div class="skills">
-    <span>Python</span>
-    <span>SQL</span>
-    <span>PyTorch</span>
-    <span>Azure Data Factory</span>
-    <span>Databricks</span>
-    <span>Snowflake</span>
-    <span>Power BI</span>
-    <span>Git</span>
-    <span>Docker</span>
-  </div>
-</section>
+    <div class="card box">
+      <div class="chips" aria-label="Skills list">
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">PyTorch</span>
+        <span class="chip">Pandas / NumPy</span>
+        <span class="chip">Azure Data Factory</span>
+        <span class="chip">Databricks</span>
+        <span class="chip">Snowflake</span>
+        <span class="chip">Power BI</span>
+        <span class="chip">Git / GitHub</span>
+        <span class="chip">Docker</span>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h2>Contact</h2>
-  <p class="contact">
-    LinkedIn: <a href="https://www.linkedin.com/in/m-vinaymusanagari/" target="_blank">
-      linkedin.com/in/m-vinaymusanagari
-    </a><br>
-    GitHub: <a href="https://github.com/vmusanagari-dataengineer" target="_blank">
-      github.com/vmusanagari-dataengineer
-    </a>
-  </p>
-</section>
+  <section id="projects">
+    <div class="section-title">
+      <h2>Featured projects</h2>
+      <span class="hint">Selected work</span>
+    </div>
+
+    <div class="grid">
+      <article class="card proj">
+        <div class="proj-top">
+          <h3 class="proj-title">AI Password Generation & Strength Classification</h3>
+          <span class="tag">PyTorch</span>
+        </div>
+        <div class="tagrow">
+          <span class="tag">RNN</span><span class="tag">CNN</span><span class="tag">VAE</span><span class="tag">Security</span>
+        </div>
+        <p>
+          Deep learning pipeline to classify password strength and generate secure, high-entropy passwords.
+          Includes preprocessing, model training, and evaluation artifacts.
+        </p>
+        <div class="proj-actions">
+          <a class="btn" href="https://github.com/vmusanagari-dataengineer/Password-Machine-learning" target="_blank" rel="noreferrer">View repo →</a>
+          <!-- Optional: if you have a live demo link, add it here -->
+          <!-- <a class="btn" href="https://your-demo-link" target="_blank">Live demo →</a> -->
+        </div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj-top">
+          <h3 class="proj-title">Skill Hub — AI-assisted Learning Portal</h3>
+          <span class="tag">Full-stack</span>
+        </div>
+        <div class="tagrow">
+          <span class="tag">Course workflows</span><span class="tag">Tracking</span><span class="tag">Feedback</span><span class="tag">DB Design</span>
+        </div>
+        <p>
+          Corporate learning portal to create courses, register employees, track progress, and collect client feedback.
+          Built for clear UX with database-driven modules.
+        </p>
+        <div class="proj-actions">
+          <a class="btn" href="https://github.com/vmusanagari-dataengineer/Skill-Hub" target="_blank" rel="noreferrer">View repo →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <span class="hint">Let’s connect</span>
+    </div>
+
+    <div class="card box">
+      <p style="margin:0;">
+        LinkedIn: <a href="https://www.linkedin.com/in/m-vinaymusanagari/" target="_blank" rel="noreferrer">linkedin.com/in/m-vinaymusanagari</a><br/>
+        GitHub: <a href="https://github.com/vmusanagari-dataengineer" target="_blank" rel="noreferrer">github.com/vmusanagari-dataengineer</a>
+        <!-- Optional: email -->
+        <!-- <br/>Email: <a href="mailto:you@email.com">you@email.com</a> -->
+      </p>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  © 2026 Vinay Musanagari
+  <div class="wrap">
+    <div class="footer-row">
+      <span>© <span id="year"></span> Vinay Musanagari</span>
+      <span class="mono">Built for GitHub Pages</span>
+    </div>
+  </div>
 </footer>
 
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
